@@ -1,0 +1,7 @@
+Flask==2.1.2
+Flask-SQLAlchemy==2.5.1
+SQLAlchemy==1.4.51
+Werkzeug==2.0.3  # or the version that's currently working for you
+Jinja2==3.1.2  # or the version that's currently working for you
+click==8.1.7  # or the version that's currently working for you
+itsdangerous==2.1.2  # or the version that's currently working for you

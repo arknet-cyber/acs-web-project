@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="admin-container">
+        <h2>Add New Joke</h2>
+        <form method="post" action="{{ url_for('add_joke') }}">
+            <label for="category">Category:</label>
+            <select name="category" id="category">
+                <option value="Police">Police</option>
+                <option value="Blonde">Blonde</option>
+                <option value="Doctor">Doctor</option>
+                <option value="Lawyer">Lawyer</option>
+                <option value="Programmer">Programmer</option>
+                <option value="Animal">Animal</option>
+            </select>
+
+            <label for="jokeText">Joke:</label>
+            <textarea name="jokeText" id="jokeText" rows="4" required></textarea>
+
+            <input type="submit" value="Add Joke">
+        </form>
+
+        <h2>Manage Jokes</h2>
+        {% for joke in jokes %}
+            <div class="joke-container">
+                <p>{{ joke.text }}</p>
+                <form action="{{ url_for('delete_joke', joke_id=joke.id) }}" method="POST">
+                    <input type="submit" value="Delete">
+                </form>
+            </div>
+        {% endfor %}
+        
+       <!-- Logout Button -->
+       <button onclick="location.href='{{ url_for('logout') }}'">Logout</button> 
+    </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ category.capitalize() }} Jokes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to iUmor Central!</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('category_jokes', category_name='Police') }}">Police Jokes</a></li>
+            <li><a href="{{ url_for('category_jokes', category_name='Blonde') }}">Blonde Jokes</a></li>
+            <li><a href="{{ url_for('category_jokes', category_name='Doctor') }}">Doctor Jokes</a></li>
+            <li><a href="{{ url_for('category_jokes', category_name='Lawyer') }}">Lawyer Jokes</a></li>
+            <li><a href="{{ url_for('category_jokes', category_name='Programmer') }}">Programmer Jokes</a></li>
+            <li><a href="{{ url_for('category_jokes', category_name='Animal') }}">Animal Jokes</a></li>
+            <li><a href="{{ url_for('admin_login') }}">Admin Login</a></li>
+        </ul>
+    </nav>
+    <div>
+        <h2>{{ category.capitalize() }} Jokes</h2>
+        {% for joke in jokes %}
+            <div class="joke-container">
+                <p class="joke-text">{{ joke.text }}</p>
+            </div>
+        {% else %}
+            <p>No jokes found in this category.</p>
+        {% endfor %}
+    </div>
+    <footer>
+        <p>&copy; 2024 iUmor Central</p>
+    </footer>
+</body>
+</html>
+
+
