@@ -23,3 +23,7 @@ pip install -r requirements.txt
 ### Run the application
 
 python app.py
+
+* Also you can install dbeaver db client to see how the table is updated
+
+https://dbeaver.io/download/
